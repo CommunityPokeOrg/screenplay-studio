@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Screenplay page: US Letter proportions, Courier, element indents in ch. */
+.screenplay-page {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12pt;
+  line-height: 1;
+}
+
+.el-scene-heading textarea,
+.el-scene-heading input {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.el-character textarea,
+.el-character input {
+  text-transform: uppercase;
+  padding-left: 22ch;
+}
+.el-parenthetical textarea,
+.el-parenthetical input {
+  padding-left: 16ch;
+  max-width: 46ch;
+}
+.el-dialogue textarea,
+.el-dialogue input {
+  padding-left: 10ch;
+  max-width: 48ch;
+}
+.el-transition textarea,
+.el-transition input {
+  text-align: right;
+  text-transform: uppercase;
+}
+.el-centered textarea,
+.el-centered input {
+  text-align: center;
+}
+.el-note textarea,
+.el-note input {
+  color: #b45309;
+}
+.dark .el-note textarea,
+.dark .el-note input {
+  color: #fbbf24;
+}

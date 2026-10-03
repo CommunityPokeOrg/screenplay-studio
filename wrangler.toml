@@ -1,0 +1,28 @@
+name = "screenplay-studio"
+main = "worker/index.ts"
+compatibility_date = "2025-09-27"
+
+# Static frontend (built by `npm run build` into ./dist) served by the same Worker.
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
+
+# D1 relational database. Create with:
+#   wrangler d1 create screenplay-studio
+# then paste the returned database_id below and run `npm run db:migrate`.
+[[d1_databases]]
+binding = "DB"
+database_name = "screenplay-studio"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+# R2 bucket for attachments (reference images, PDFs, research files).
+# Create with: wrangler r2 bucket create screenplay-attachments
+[[r2_buckets]]
+binding = "ATTACHMENTS"
+bucket_name = "screenplay-attachments"
+
+# Optional shared secret: if set, every /api request must send
+# `Authorization: Bearer <value>`. Configure via `wrangler secret put SYNC_TOKEN`.
+# [vars]
+# (none — SYNC_TOKEN is a secret, not a var)
